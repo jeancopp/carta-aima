@@ -147,6 +147,17 @@ const Formulario = ({formData, onChange}) => {
                         Incluir espaço para assinatura ao final
                     </label>
                 </div>
+                <div className="form-group checkbox-group">
+                    <label className="checkbox-label">
+                        <input
+                            type="checkbox"
+                            name="verPreview"
+                            checked={formData.verPreview}
+                            onChange={onChange}
+                        />
+                        Pré-visualizar
+                    </label>
+                </div>
 
             </div>
         </div>

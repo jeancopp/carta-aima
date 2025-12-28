@@ -1,5 +1,4 @@
 import React from "react";
-import './PreviewPDF.css';
 import CartaAima from "./CartaAima";
 
 const PreviewPDF = ({formData, date}) => {

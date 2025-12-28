@@ -1,0 +1,15 @@
+.export{
+    display: flex;
+    justify-content: center;
+}
+
+.export__button{
+    padding: 10px 20px;
+    background: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}

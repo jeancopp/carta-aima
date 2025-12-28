@@ -1,9 +1,12 @@
 import React, {useRef} from 'react';
 
+import './ExportadorPDF.css';
+
 import html2canvas from 'html2canvas';
 import JsPDF from 'jspdf';
+import CartaAima from "./CartaAima";
 
-const ExportadorPDF = ({children, nomeArquivo}) => {
+const ExportadorPDF = ({formData}) => {
     const componenteRef = useRef(null);
 
     const exportarParaPDF = async () => {
@@ -30,7 +33,7 @@ const ExportadorPDF = ({children, nomeArquivo}) => {
             const imgData = canvas.toDataURL('image/png');
             pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
 
-            pdf.save(nomeArquivo);
+            pdf.save(`carta-aima-${formData.nome.trim().replaceAll(' ', '-')}.pdf`);
 
         } catch (error) {
             console.error('Erro ao exportar:', error);
@@ -39,34 +42,24 @@ const ExportadorPDF = ({children, nomeArquivo}) => {
     };
 
     return (
-        <div>
-            <button
-                onClick={exportarParaPDF}
-                style={{
-                    padding: '10px 20px',
-                    background: '#007acc',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
-                    fontSize: '16px',
-                    margin: '10px'
-                }}
-            >📄 Exportar para PDF</button>
+        <>
+            <div className="export">
+                <button
+                    onClick={exportarParaPDF}
+                    className="export__button">📄 Exportar para PDF</button>
+            </div>
 
             <div
                 ref={componenteRef}
                 style={{
                     position: 'absolute',
+                    width: '210mm',
                     left: '-9999px',
                     top: 0,
-                    width: '210mm', // Largura A4
-                    backgroundColor: 'white',
-                    background: 'white',
                     padding: '1.5rem'
                 }}
-            >{children}</div>
-        </div>
+            ><CartaAima formData={formData} date={formData.dataAtual}/></div>
+        </>
     );
 };
 
