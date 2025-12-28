@@ -3,38 +3,33 @@ import React, {useRef} from 'react';
 import html2canvas from 'html2canvas';
 import JsPDF from 'jspdf';
 
-const ExportadorPDF = ({children, nomeArquivo = "documento.pdf"}) => {
+const ExportadorPDF = ({children, nomeArquivo}) => {
     const componenteRef = useRef(null);
 
     const exportarParaPDF = async () => {
         if (!componenteRef.current) return;
 
         try {
-            // 1. Capturar o componente
             const canvas = await html2canvas(componenteRef.current, {
-                scale: 2, // Alta qualidade
+                scale: 2,
                 useCORS: true,
                 logging: false,
                 backgroundColor: '#ffffff',
                 allowTaint: true
             });
 
-            // 2. Criar PDF
             const pdf = new JsPDF({
                 orientation: 'portrait',
                 unit: 'mm',
                 format: 'a4'
             });
 
-            // 3. Configurar dimensões A4
-            const imgWidth = 210; // Largura A4 em mm
+            const imgWidth = 210;
             const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-            // 4. Adicionar ao PDF
             const imgData = canvas.toDataURL('image/png');
             pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
 
-            // 5. Salvar
             pdf.save(nomeArquivo);
 
         } catch (error) {
@@ -45,7 +40,6 @@ const ExportadorPDF = ({children, nomeArquivo = "documento.pdf"}) => {
 
     return (
         <div>
-            {/* Botão de exportação */}
             <button
                 onClick={exportarParaPDF}
                 style={{
@@ -58,11 +52,8 @@ const ExportadorPDF = ({children, nomeArquivo = "documento.pdf"}) => {
                     fontSize: '16px',
                     margin: '10px'
                 }}
-            >
-                📄 Exportar para PDF
-            </button>
+            >📄 Exportar para PDF</button>
 
-            {/* Container invisível que será exportado */}
             <div
                 ref={componenteRef}
                 style={{
@@ -70,11 +61,11 @@ const ExportadorPDF = ({children, nomeArquivo = "documento.pdf"}) => {
                     left: '-9999px',
                     top: 0,
                     width: '210mm', // Largura A4
-                    backgroundColor: 'white'
+                    backgroundColor: 'white',
+                    background: 'white',
+                    padding: '1.5rem'
                 }}
-            >
-                {children}
-            </div>
+            >{children}</div>
         </div>
     );
 };
