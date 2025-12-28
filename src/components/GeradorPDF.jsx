@@ -42,6 +42,7 @@ const GeradorPDF = () => {
                 A intenção é apenas auxiliar, sem fins lucrativos, não me responsabilizando pelo preencher das informações, nem por eventuais atualizações de quaisquer processos.
                 <br/>
                 Gere a carta, imprima, leve aos correios, e mande a AIMA.<br/>
+                Se preferir, pode também baixar o <a href="./carta-aima.docx" target="_blank">template word aqui</a> e preencher conforme lhe auxlie.<br/>
                 No mais, espero que ajude ;)
                 <br/>
             </div>
