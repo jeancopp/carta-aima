@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/carta-aima/static/css/main.d2c6a3b3.css",
+    "main.js": "/carta-aima/static/js/main.38e9c103.js",
+    "static/js/977.ea19f287.chunk.js": "/carta-aima/static/js/977.ea19f287.chunk.js",
+    "static/js/455.44120fae.chunk.js": "/carta-aima/static/js/455.44120fae.chunk.js",
+    "static/js/453.e412e4c6.chunk.js": "/carta-aima/static/js/453.e412e4c6.chunk.js",
+    "index.html": "/carta-aima/index.html",
+    "main.d2c6a3b3.css.map": "/carta-aima/static/css/main.d2c6a3b3.css.map",
+    "main.38e9c103.js.map": "/carta-aima/static/js/main.38e9c103.js.map",
+    "977.ea19f287.chunk.js.map": "/carta-aima/static/js/977.ea19f287.chunk.js.map",
+    "455.44120fae.chunk.js.map": "/carta-aima/static/js/455.44120fae.chunk.js.map",
+    "453.e412e4c6.chunk.js.map": "/carta-aima/static/js/453.e412e4c6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2c6a3b3.css",
+    "static/js/main.38e9c103.js"
+  ]
+}
